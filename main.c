@@ -1,4 +1,4 @@
-#include "includes/bitmap.h"
+#include "includes/libbmp.h"
 #include "minilibx/mlx.h"
 #define SIZE 200
 
@@ -30,8 +30,8 @@ int main()
    void *win=mlx_new_window(mlx, 800, 800, "prout");
   //map = img(SIZE, SIZE);
   //export_as_bmp("test.bmp", map, SIZE, SIZE);
-  map = import_bmp("test2.bmp", &size);
-  void *ptr = mlx_new_image(mlx, 320, 200);
+  map = import_bmp("test.bmp", &size);
+  void *ptr = mlx_new_image(mlx, 600, 316);
   char *img = mlx_get_data_addr(ptr, &bpp, &cc, &a);
   while (i < size)
   {
