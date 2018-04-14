@@ -51,7 +51,7 @@ int			get_imagedata(t_bmp *bmp)
 				return (0);
 			j++;
 		}
-		if (padding != 0)
+		if (padding > 0)
 			read(bmp->fd, pix, padding);
 		i++;
 	}

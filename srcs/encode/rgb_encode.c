@@ -12,6 +12,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/bitmap.h"
+#include <stdio.h>
 
 static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
 	t_bitmap_data **ptr)
@@ -33,44 +34,68 @@ static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
 	return (1);
 }
 
-t_bitmap_data	*fill_imagedata(char *img, int width, int height)
+int						fill_imagedata(t_bmp *bmp, char *img, int width, int height)
 {
-	t_bitmap_data	*data;
 	t_bitmap_data	*ptr;
 	int				l;
 	int				i;
+	int				j;
+	int				k;
 
+	k = 0;
 	i = 0;
+	j = 0;
 	l = width * height * 4;
-	data = NULL;
 	while (i < l)
 	{
-		if (!(create_bitmap_data(img, i, &data, &ptr)))
-			return (NULL);
+		if (!(create_bitmap_data(img, i, &bmp->data, &ptr)))
+			return (0);
+		j++;
+		if (j == width || i == 0)
+		{
+			bmp->row_ptr[k] = ptr;
+			k++;
+			j = 0;
+		}
 		i += 4;
 	}
-	return (data);
+	return (1);
 }
 
-void			write_rgb(t_bmp *bmp)
+void static		get_row(t_bitmap_data **data, char *row, t_uint len)
 {
-	int				i;
-	t_uint			j;
+	t_uint	i;
+
+	i = 0;
+	while (i < len)
+	{
+		row[i] = (*data)->rgb.color[0];
+		row[i + 1] = (*data)->rgb.color[1];
+		row[i + 2] = (*data)->rgb.color[2];
+		(*data) = (*data)->next;
+		i += 3;
+	}
+}
+
+int					write_rgb(t_bmp *bmp)
+{
+	int						i;
+	char					*row;
+	t_uint				len;
 	t_bitmap_data	*ptr;
 
 	i = bmp->info_header->height - 1;
+	len = bmp->info_header->width * 3;
+	ptr = bmp->data;
+	if (!(row = (char*)malloc(sizeof(char) * len)))
+		return (0);
 	while (i != -1)
 	{
-		j = 0;
-		ptr = bmp->row_ptr[i];
-		while (j < bmp->info_header->width)
-		{
-			write(bmp->fd, ptr->rgb.color, 3);
-			ptr = ptr->next;
-			j++;
-		}
+		get_row(&ptr, row, len);
+		write(bmp->fd, row, len);
 		if (bmp->padding > 0)
 			write(bmp->fd, "\0", bmp->padding);
 		i--;
 	}
+	free(row);
 }

@@ -22,7 +22,7 @@ t_bmp	*decode(const char *path)
 {
 	t_bmp *bmp;
 
-	if (!(bmp = init_bmp()))
+	if (!(bmp = init_bmp(0)))
 		return (NULL);
 	if ((bmp->fd = open(path, O_RDONLY)) == -1)
 		return (NULL);

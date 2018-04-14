@@ -32,9 +32,9 @@ t_bmp						*decode(const char *path);
 */
 
 void						fill_headers(t_bmp *bmp, int width, int height);
-t_bitmap_data				*fill_imagedata(char *img, int width, int height);
+int							fill_imagedata(t_bmp *bmp, char *img, int width, int height);
 t_bmp						*encode(char *img, int width, int height);
-void						write_rgb(t_bmp *bmp);
+int							write_rgb(t_bmp *bmp);
 void						write_headers(t_bmp *bmp);
 int							export_as_bmp(char *path, char *img, int width,
 							int height);
@@ -42,7 +42,7 @@ int							export_as_bmp(char *path, char *img, int width,
 ** SHARED
 */
 
-t_bmp						*init_bmp(void);
+t_bmp						*init_bmp(int height);
 t_bitmap_data				*new_bitmapdata_node(t_uchar b, t_uchar g,
 							t_uchar r);
 int							check_header(t_bmp *bmp);
