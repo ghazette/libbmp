@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 static t_bmp	*encode(char *img, int width, int height)
 {

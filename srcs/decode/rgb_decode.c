@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 static char	*concat_row(t_bmp *bmp, char **img_arr)
 {
@@ -24,7 +24,8 @@ static char	*concat_row(t_bmp *bmp, char **img_arr)
 	k = 0;
 	i = bmp->info_header->height - 1;
 	len = bmp->info_header->width * 4;
-	ret = malloc(bmp->info_header->width * bmp->info_header->height * 4);
+	if (!(ret = malloc(bmp->info_header->width * bmp->info_header->height * 4)))
+		return (NULL);
 	while (i != -1)
 	{
 		j = 0;

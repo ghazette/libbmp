@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "bmp.h"
-# include <stdio.h>
 
 /*
 ** DECODE

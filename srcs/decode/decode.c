@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 static t_bmp	*decode(char *path)
 {
@@ -20,7 +20,10 @@ static t_bmp	*decode(char *path)
 	if (!(bmp = init_bmp(0)))
 		return (NULL);
 	if ((bmp->fd = open(path, O_RDONLY)) == -1)
+	{
+		destroy_bmp(bmp);
 		return (NULL);
+	}
 	decode_bmp_file_header(bmp);
 	decode_bitmap_info_header(bmp);
 	if (check_header(bmp))

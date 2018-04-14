@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 void	decode_bmp_file_header(t_bmp *bmp)
 {

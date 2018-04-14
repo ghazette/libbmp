@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 void	fill_headers(t_bmp *bmp, int width, int height)
 {

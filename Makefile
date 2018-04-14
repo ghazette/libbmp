@@ -22,7 +22,7 @@ SRCS = srcs/decode/decode.c srcs/decode/header.c srcs/decode/rgb_decode.c\
 		srcs/encode/encode.c srcs/encode/header.c srcs/encode/rgb_encode.c\
 		srcs/shared/bitmap.c srcs/shared/check.c srcs/shared/utils.c
 
-HEADER = includes/bitmap.h includes/bmp.h
+HEADER = includes/libbmp.h includes/bmp.h
 
 OBJS = $(SRCS:.c=.o)
 

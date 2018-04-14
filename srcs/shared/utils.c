@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 t_uint		bytes_to_number(t_uchar *str, t_uint n)
 {
@@ -77,23 +77,3 @@ void	free2d(char ***str)
 **	printf("padding: %d\n", bmp->padding);
 ** }
 */
-
- void		display_header(t_bmp *bmp)
- {
-	printf("%c%c\n", bmp->file_header->signature[0],
-	bmp->file_header->signature[1]);
-	printf("total size : %d\n", bmp->file_header->totalsize);
-	printf("offset: %d\n", bmp->file_header->offset);
-	printf("bitmap info header size: %d\n", bmp->info_header->bm_headersize);
-	printf("width: %d\n", bmp->info_header->width);
-	printf("height: %d\n", bmp->info_header->height);
-	printf("planes number: %d\n", bmp->info_header->planes_number);
-	printf("BPP: %d\n", bmp->info_header->bpp);
-	printf("compression type: %d\n", bmp->info_header->compression_type);
-	printf("image size: %d\n", bmp->info_header->imagesize);
-	printf("horizontal resolution: %d\n", bmp->info_header->hres);
-	printf("vertical resolution: %d\n", bmp->info_header->vres);
-	printf("number of colors: %d\n", bmp->info_header->ncolors);
-	printf("number of important colors: %d\n", bmp->info_header->nimpcolors);
-	printf("padding: %d\n", bmp->padding);
- }
