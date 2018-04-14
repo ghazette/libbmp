@@ -65,6 +65,7 @@ typedef struct				s_bmp
 	t_bitmap_info_header	*info_header;
 	t_bitmap_data			*data;
 	t_bitmap_data			**row_ptr;
+	char					*data_decode;
 	int						padding;
 }							t_bmp;
 

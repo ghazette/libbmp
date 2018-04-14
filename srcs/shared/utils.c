@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 t_uint		bytes_to_number(t_uchar *str, t_uint n)
 {
@@ -39,6 +39,21 @@ void		number_to_bytes(t_uint nb, t_uchar *buffer, t_uint len)
 		i--;
 	}
 	buffer[i] = nb & 0xFF;
+}
+
+void	free2d(char ***str)
+{
+	int i;
+
+	i = 0;
+	while ((*str)[i] != 0)
+	{
+		free((*str)[i]);
+		i++;
+	}
+	free((*str)[i]);
+	free(*str);
+	*str = NULL;
 }
 
 /*

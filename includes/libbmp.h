@@ -25,7 +25,7 @@
 int							get_imagedata(t_bmp *bmp);
 void						decode_bitmap_info_header(t_bmp *bmp);
 void						decode_bmp_file_header(t_bmp *bmp);
-t_bmp						*decode(const char *path);
+char						*import_bmp(char *path, size_t *size);
 
 /*
 ** ENCODE
@@ -33,7 +33,6 @@ t_bmp						*decode(const char *path);
 
 void						fill_headers(t_bmp *bmp, int width, int height);
 int							fill_imagedata(t_bmp *bmp, char *img, int width, int height);
-t_bmp						*encode(char *img, int width, int height);
 int							write_rgb(t_bmp *bmp);
 void						write_headers(t_bmp *bmp);
 int							export_as_bmp(char *path, char *img, int width,
@@ -50,5 +49,7 @@ t_uint						bytes_to_number(t_uchar *str, t_uint len);
 void						number_to_bytes(t_uint nb, unsigned char *buffer,
 							t_uint len);
 void						destroy_bmp(t_bmp *bmp);
+void						free2d(char ***str);
 
+ void		display_header(t_bmp *bmp);
 #endif

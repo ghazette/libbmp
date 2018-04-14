@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 void	decode_bmp_file_header(t_bmp *bmp)
 {
@@ -40,4 +40,5 @@ void	decode_bitmap_info_header(t_bmp *bmp)
 	bmp->info_header->vres = bytes_to_number(buffer + 28, 4);
 	bmp->info_header->ncolors = bytes_to_number(buffer + 32, 4);
 	bmp->info_header->nimpcolors = bytes_to_number(buffer + 36, 4);
+	bmp->padding = bmp->info_header->width % 4;
 }

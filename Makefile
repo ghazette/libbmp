@@ -14,7 +14,7 @@ NAME = libbmp.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -O2
+CFLAGS = -Wall -Werror -Wextra -O3
 
 RM = rm -f
 
@@ -22,7 +22,7 @@ SRCS = srcs/decode/decode.c srcs/decode/header.c srcs/decode/rgb_decode.c\
 		srcs/encode/encode.c srcs/encode/header.c srcs/encode/rgb_encode.c\
 		srcs/shared/bitmap.c srcs/shared/check.c srcs/shared/utils.c
 
-HEADER = includes/bitmap.h includes/bmp.h
+HEADER = includes/libbmp.h includes/bmp.h
 
 OBJS = $(SRCS:.c=.o)
 
@@ -43,4 +43,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: re all clean fclean
-

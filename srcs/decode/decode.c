@@ -11,21 +11,19 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
-/*
-** Une fois l'image decode les pixels sont stocker un a un dans une liste
-** chainee dans bmp->data
-*/
-
-t_bmp	*decode(const char *path)
+static t_bmp	*decode(char *path)
 {
 	t_bmp *bmp;
 
 	if (!(bmp = init_bmp(0)))
 		return (NULL);
 	if ((bmp->fd = open(path, O_RDONLY)) == -1)
+	{
+		destroy_bmp(bmp);
 		return (NULL);
+	}
 	decode_bmp_file_header(bmp);
 	decode_bitmap_info_header(bmp);
 	if (check_header(bmp))
@@ -34,4 +32,17 @@ t_bmp	*decode(const char *path)
 		return (NULL);
 	close(bmp->fd);
 	return (bmp);
+}
+
+char	*import_bmp(char *path, size_t *size)
+{
+	t_bmp	*bmp;
+	char	*ret;
+
+	if (!(bmp = decode(path)))
+		return (NULL);
+	*size = bmp->info_header->width * bmp->info_header->height * 4;
+	ret = bmp->data_decode;
+	destroy_bmp(bmp);
+	return (ret);
 }

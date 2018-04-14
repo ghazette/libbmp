@@ -11,8 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
-#include <stdio.h>
+#include "../../includes/libbmp.h"
 
 static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
 	t_bitmap_data **ptr)

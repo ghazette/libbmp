@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
 t_bmp			*init_bmp(int height)
 {
@@ -24,9 +24,14 @@ t_bmp			*init_bmp(int height)
 	if (!(bmp->info_header = malloc(sizeof(t_bitmap_info_header))))
 		return (NULL);
 	if (height != 0)
+	{
 		if (!(bmp->row_ptr = malloc(height * sizeof(t_bitmap_data*))))
 			return(NULL);
+	}
+	else
+		bmp->row_ptr = NULL;
 	bmp->data = NULL;
+	bmp->data_decode = NULL;
 	return (bmp);
 }
 
@@ -55,7 +60,8 @@ void			destroy_bmp(t_bmp *bmp)
 		free(ptr);
 		ptr = nxt;
 	}
-	free(bmp->row_ptr);
+	if (bmp->row_ptr)
+		free(bmp->row_ptr);
 	free(bmp->file_header);
 	free(bmp->info_header);
 	bmp->data = NULL;

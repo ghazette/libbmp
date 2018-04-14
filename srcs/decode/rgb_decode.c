@@ -11,50 +11,85 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../../includes/bitmap.h"
+#include "../../includes/libbmp.h"
 
-static int	create_bitmapdata(t_bmp **bmp, t_bitmap_data **ptr, t_uchar pix[3])
+static char	*concat_row(t_bmp *bmp, char **img_arr)
 {
-	if (!(*bmp)->data)
-	{
-		if (!((*bmp)->data = new_bitmapdata_node(pix[0], pix[1], pix[2])))
-			return (0);
-		*ptr = (*bmp)->data;
-	}
-	else
-	{
-		if (!((*bmp)->data->next = new_bitmapdata_node(pix[0], pix[1], pix[2])))
-			return (0);
-		(*bmp)->data = (*bmp)->data->next;
-	}
-	return (1);
-}
+	char	*ret;
+	int		len;
+	int		i;
+	int		j;
+	int		k;
 
-int			get_imagedata(t_bmp *bmp)
-{
-	t_uint			i;
-	t_uint			j;
-	int				padding;
-	unsigned char	pix[3];
-	t_bitmap_data	*ptr;
-
-	ptr = NULL;
-	i = 0;
-	padding = bmp->info_header->width % 4;
-	while (i < bmp->info_header->height)
+	k = 0;
+	i = bmp->info_header->height - 1;
+	len = bmp->info_header->width * 4;
+	if (!(ret = malloc(bmp->info_header->width * bmp->info_header->height * 4)))
+		return (NULL);
+	while (i != -1)
 	{
 		j = 0;
-		while (j < bmp->info_header->width)
+		while (j < len)
 		{
-			read(bmp->fd, pix, 3);
-			if (!(create_bitmapdata(&bmp, &ptr, pix)))
-				return (0);
+			ret[k] = img_arr[i][j];
+			k++;
 			j++;
 		}
-		if (padding > 0)
-			read(bmp->fd, pix, padding);
-		i++;
+		i--;
 	}
-	bmp->data = ptr;
+	return (ret);
+}
+
+static char *get_row(t_bmp *bmp, char *img)
+{
+	char *ret;
+	int		len;
+	int		alloc;
+	int		i;
+	int		j;
+
+	j = 0;
+	i = 0;
+	len = (bmp->info_header->width * 3) - bmp->padding;
+	alloc = (bmp->info_header->width * 4) - bmp->padding;
+	if (!(ret = malloc(alloc)))
+		return (NULL);
+	while (j < len)
+	{
+		ret[i] = img[j];
+		ret[i + 1] = img[j + 1];
+		ret[i + 2] = img[j + 2];
+		ret[i + 3] = 0;
+		j += 3;
+		i += 4;
+	}
+	return (ret);
+}
+
+int					get_imagedata(t_bmp *bmp)
+{
+	int			i;
+	char	**readed;
+	char	*buffer;
+	char	pad[4];
+
+	i = bmp->info_header->height - 1;
+	if (!(readed = (char**)malloc(sizeof(char*) * (bmp->info_header->height + 1))))
+		return (0);
+	if (!(buffer = malloc((bmp->info_header->width * 3) - bmp->padding)))
+		return (0);
+	readed[bmp->info_header->height] = 0;
+	while (i != -1)
+	{
+		if (read(bmp->fd, buffer, (bmp->info_header->width * 3) - bmp->padding))
+			readed[i] = get_row(bmp, buffer);
+		if (bmp->padding > 0)
+			read(bmp->fd, pad, bmp->padding);
+		i--;
+	}
+	free(buffer);
+	if (!(bmp->data_decode = concat_row(bmp, readed)))
+		return (0);
+	free2d(&readed);
 	return (1);
 }
