@@ -37,15 +37,16 @@ static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
 int						fill_imagedata(t_bmp *bmp, char *img, int width, int height)
 {
 	t_bitmap_data	*ptr;
-	int				l;
-	int				i;
-	int				j;
-	int				k;
+	int						l;
+	int						i;
+	int						j;
+	int						k;
 
 	k = 0;
 	i = 0;
 	j = 0;
 	l = width * height * 4;
+	ptr = NULL;
 	while (i < l)
 	{
 		if (!(create_bitmap_data(img, i, &bmp->data, &ptr)))
@@ -62,7 +63,7 @@ int						fill_imagedata(t_bmp *bmp, char *img, int width, int height)
 	return (1);
 }
 
-void static		get_row(t_bitmap_data **data, char *row, t_uint len)
+static void		get_row(t_bitmap_data **data, char *row, t_uint len)
 {
 	t_uint	i;
 
@@ -98,4 +99,5 @@ int					write_rgb(t_bmp *bmp)
 		i--;
 	}
 	free(row);
+	return (1);
 }

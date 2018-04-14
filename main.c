@@ -1,5 +1,5 @@
 #include "includes/bitmap.h"
-#define SIZE 8000
+#define SIZE 2500
 
 char  *img(int w, int h)
 {
@@ -27,8 +27,4 @@ int main()
   map = img(SIZE, SIZE);
   export_as_bmp("test.bmp", map, SIZE, SIZE);
   free(map);
-  while (1)
-  {
-    sleep(1);
-  }
 }

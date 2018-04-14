@@ -53,7 +53,6 @@ void			destroy_bmp(t_bmp *bmp)
 	{
 		nxt = ptr->next;
 		free(ptr);
-		ptr = NULL;
 		ptr = nxt;
 	}
 	free(bmp->row_ptr);
