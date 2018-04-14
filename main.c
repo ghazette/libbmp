@@ -1,5 +1,5 @@
 #include "includes/bitmap.h"
-#define SIZE 2500
+#define SIZE 200
 
 char  *img(int w, int h)
 {
@@ -19,12 +19,12 @@ char  *img(int w, int h)
   return map;
 }
 
-
 int main()
 {
   char *map;
-
-  map = img(SIZE, SIZE);
-  export_as_bmp("test.bmp", map, SIZE, SIZE);
+  size_t size;
+  //map = img(SIZE, SIZE);
+  //export_as_bmp("test.bmp", map, SIZE, SIZE);
+  map = import_bmp("test.bmp", &size);
   free(map);
 }

@@ -29,8 +29,8 @@ void	fill_headers(t_bmp *bmp, int width, int height)
 	bmp->file_header->offset = 54;
 	bmp->info_header->bm_headersize = 40;
 	bmp->info_header->imagesize = len;
-	bmp->info_header->hres = 0;
-	bmp->info_header->vres = 0;
+	bmp->info_header->hres = 3780;
+	bmp->info_header->vres = 3780;
 	bmp->info_header->width = width;
 	bmp->info_header->height = height;
 	bmp->info_header->planes_number = 1;

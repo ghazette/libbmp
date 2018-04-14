@@ -14,7 +14,7 @@ NAME = libbmp.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -O2
+CFLAGS = -Wall -Werror -Wextra -O3
 
 RM = rm -f
 
@@ -43,4 +43,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: re all clean fclean
-

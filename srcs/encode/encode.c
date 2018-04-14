@@ -13,7 +13,7 @@
 
 #include "../../includes/bitmap.h"
 
-t_bmp					*encode(char *img, int width, int height)
+static t_bmp	*encode(char *img, int width, int height)
 {
 	t_bmp	*bmp;
 
