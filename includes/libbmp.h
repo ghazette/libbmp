@@ -51,5 +51,8 @@ void						number_to_bytes(t_uint nb, unsigned char *buffer,
 void						destroy_bmp(t_bmp *bmp);
 void						free2d(char ***str);
 
- void		display_header(t_bmp *bmp);
+/*
+** void		display_header(t_bmp *bmp);
+*/
+
 #endif

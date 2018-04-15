@@ -12,7 +12,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/libbmp.h"
-
+#include <stdio.h>
 static t_bmp	*decode(char *path)
 {
 	t_bmp *bmp;
@@ -27,7 +27,10 @@ static t_bmp	*decode(char *path)
 	decode_bmp_file_header(bmp);
 	decode_bitmap_info_header(bmp);
 	if (check_header(bmp))
-		get_imagedata(bmp);
+	{
+		if (!(get_imagedata(bmp)))
+			return (NULL);
+	}
 	else
 		return (NULL);
 	close(bmp->fd);
