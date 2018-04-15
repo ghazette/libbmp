@@ -57,7 +57,7 @@ void	free2d(char ***str)
 }
 
 
- void		display_header(t_bmp *bmp)
+/* void		display_header(t_bmp *bmp)
  {
 	printf("%c%c\n", bmp->file_header->signature[0], bmp->file_header->signature[1]);
 	printf("total size : %d\n", bmp->file_header->totalsize);
@@ -75,3 +75,4 @@ printf("vertical resolution: %d\n", bmp->info_header->vres);
 	printf("number of important colors: %d\n", bmp->info_header->nimpcolors);
 	printf("padding: %d\n", bmp->padding);
  }
+*/

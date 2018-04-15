@@ -17,7 +17,7 @@ static char	*concat_row(t_bmp *bmp, char **img_arr)
 {
 	char	*ret;
 	int		len;
-	int		i;
+	t_uint		i;
 	int		j;
 	int		k;
 
