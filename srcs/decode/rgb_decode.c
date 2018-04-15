@@ -22,11 +22,11 @@ static char	*concat_row(t_bmp *bmp, char **img_arr)
 	int		k;
 
 	k = 0;
-	i = bmp->info_header->height - 1;
+	i = 0;
 	len = bmp->info_header->width * 4;
 	if (!(ret = malloc(bmp->info_header->width * bmp->info_header->height * 4)))
 		return (NULL);
-	while (i != -1)
+	while (i < bmp->info_header->height)
 	{
 		j = 0;
 		while (j < len)
@@ -35,7 +35,7 @@ static char	*concat_row(t_bmp *bmp, char **img_arr)
 			k++;
 			j++;
 		}
-		i--;
+		i++;
 	}
 	return (ret);
 }
