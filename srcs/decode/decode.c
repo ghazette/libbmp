@@ -12,7 +12,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/libbmp.h"
-#include <stdio.h>
+
 static t_bmp	*decode(char *path)
 {
 	t_bmp *bmp;
