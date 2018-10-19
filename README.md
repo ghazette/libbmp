@@ -45,7 +45,7 @@
     exemple d'importation et d'utilisation basique de l'image
 
 > ![enter image description
-> here](https://pasteboard.co/HJaCDK0.png)
+> here]https://pasteboard.co/images/HJaCDK0.png/load)
 
     exemple d'exportation d'une image mlx
 
