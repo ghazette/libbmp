@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/13 11:17:52 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:26:31 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/09/10 13:20:33 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -65,7 +65,7 @@ typedef struct				s_bmp
 	t_bitmap_info_header	*info_header;
 	t_bitmap_data			*data;
 	t_bitmap_data			**row_ptr;
-	char					*data_decode;
+	unsigned char			*data_decode;
 	int						padding;
 }							t_bmp;
 

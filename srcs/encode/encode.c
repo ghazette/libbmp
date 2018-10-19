@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/13 03:39:56 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:46:56 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/06 15:37:45 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,8 +25,7 @@ static t_bmp	*encode(char *img, int width, int height)
 	return (bmp);
 }
 
-int						export_as_bmp(char *path, char *img, int width,
-						int height)
+int				export_as_bmp(char *path, char *img, int width, int height)
 {
 	t_bmp	*bmp;
 

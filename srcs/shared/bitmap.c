@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 18:49:53 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:32:23 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/06/06 15:38:33 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ t_bmp			*init_bmp(int height)
 	if (height != 0)
 	{
 		if (!(bmp->row_ptr = malloc(height * sizeof(t_bitmap_data*))))
-			return(NULL);
+			return (NULL);
 	}
 	else
 		bmp->row_ptr = NULL;

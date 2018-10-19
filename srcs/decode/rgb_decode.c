@@ -6,20 +6,20 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 18:42:40 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:27:44 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/09/10 13:23:53 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libbmp.h"
 
-static char	*concat_row(t_bmp *bmp, char **img_arr)
+static unsigned char	*concat_row(t_bmp *bmp, unsigned char **img_arr)
 {
-	char	*ret;
-	int		len;
-	t_uint		i;
-	int		j;
-	int		k;
+	unsigned char	*ret;
+	int				len;
+	t_uint			i;
+	int				j;
+	int				k;
 
 	k = 0;
 	i = 0;
@@ -40,13 +40,13 @@ static char	*concat_row(t_bmp *bmp, char **img_arr)
 	return (ret);
 }
 
-static char *get_row(t_bmp *bmp, char *img)
+static unsigned char	*get_row(t_bmp *bmp, unsigned char *img)
 {
-	char *ret;
-	int		len;
-	int		alloc;
-	int		i;
-	int		j;
+	unsigned char	*ret;
+	int				len;
+	int				alloc;
+	int				i;
+	int				j;
 
 	j = 0;
 	i = 0;
@@ -66,15 +66,16 @@ static char *get_row(t_bmp *bmp, char *img)
 	return (ret);
 }
 
-int					get_imagedata(t_bmp *bmp)
+int						get_imagedata(t_bmp *bmp)
 {
-	int			i;
-	char	**readed;
-	char	*buffer;
-	char	pad[4];
+	int				i;
+	unsigned char	**readed;
+	unsigned char	*buffer;
+	unsigned char	pad[4];
 
 	i = bmp->info_header->height - 1;
-	if (!(readed = (char**)malloc(sizeof(char*) * (bmp->info_header->height + 1))))
+	if (!(readed = (unsigned char**)malloc(sizeof(unsigned char*) *
+	(bmp->info_header->height + 1))))
 		return (0);
 	if (!(buffer = malloc((bmp->info_header->width * 3) - bmp->padding)))
 		return (0);
