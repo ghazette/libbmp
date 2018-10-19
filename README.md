@@ -3,8 +3,8 @@
 **Description**
 
 > Cette librairie a été conçue dans le but d'utiliser l'**importation** et
-> l'**exportation** d'image simple, uniquement en **.bmp** et en **24 bits** uniquement.
->  Chaque pixel est sur 4 octets
+> l'**exportation** d'image simple, uniquement en **.bmp** et en **24 bits** uniquement,
+>  chaque pixel est codé sur 4 octets
 > **Cette librairie est 100% compatible avec la minilibx d'Epitech/42.**
 
 
