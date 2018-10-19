@@ -45,7 +45,7 @@
     exemple d'importation et d'utilisation basique de l'image
 
 > ![enter image description
-> here](https://image.noelshack.com/fichiers/2018/15/7/1523750928-tuto.png)
+> here](https://pasteboard.co/HJaCDK0.png)
 
     exemple d'exportation d'une image mlx
 
