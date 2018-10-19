@@ -45,13 +45,13 @@
 
     exemple d'importation et d'utilisation basique de l'image
 
-> ![enter image description
-> here](https://pasteboard.co/images/HJaCDK0.png/load)
+> ![Importation image BMP24Bits](https://pasteboard.co/images/HJaCDK0.png/load)
 
+    resultat
+> ![resultat](https://pasteboard.co/images/HJaFh38.png/load)
     exemple d'exportation d'une image mlx
 
-> ![enter image description
-> here](https://image.noelshack.com/fichiers/2018/15/7/1523751140-tuto.png)
+> ![Exportation en BMP24Bits](https://image.noelshack.com/fichiers/2018/15/7/1523751140-tuto.png)
 
 **Contact**
 
