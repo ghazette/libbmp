@@ -35,7 +35,7 @@
 
 **Futurs Améliorations**
  - > Calcule automatique de la taille de l'image lors de l'exportation de l'image.
- - > *N’hésitez pas à envoyez vos idées !*
+ - > *N’hésitez pas à soumettre vos idées !*
 
 **Améliorations intégrées**
  - > Retourner la largeur et hauteur lors de l'importation de l'image
