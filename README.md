@@ -4,8 +4,10 @@
 
 > Cette librairie a été conçue dans le but d'utiliser l'**importation** et
 > l'**exportation** d'image simple, uniquement en **.bmp** et en **24 bits** uniquement.
->
+> Chaque pixel est sur 4 octets(d'ou le width * height * 4 pour obtenir la taille totale du tableau,
+> voir dans l'exemple plus bas)
 > **Cette librairie est 100% compatible avec la minilibx d'Epitech/42.**
+
 
 **Installation**
 
