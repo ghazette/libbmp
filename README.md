@@ -20,9 +20,10 @@
 >
 >
 >  1. **path** est le chemin du fichier a ouvrir.
->  2. ***size**, retourne la taille en octet de la chaîne.
->  3. **return**, renvoie la chaîne formatée, aucune manipulation supplémentaire a réalisé (voir exemple plus bas) ou NULL en cas d’échec.
->
+>  2. ***width**, retourne la largeur de l'image.
+>  3. ***height**, retourne la hauteur de l'image.
+>  4. **return**, renvoie la chaîne formatée, aucune manipulation supplémentaire a réalisé (voir exemple plus bas) ou NULL en cas d’échec.
+
 > int **export_as_bmp**(char ***path**, char ***img**, int **width**, int **height**);
 
 >  1. **path** est le chemin de sauvegarde du fichier.
