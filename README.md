@@ -1,4 +1,4 @@
-# libBMP 1.0
+# libBMP 1.1
 
 **Description**
 
