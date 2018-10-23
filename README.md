@@ -17,7 +17,7 @@
 
 **Documentations**
 
-> char						***import_bmp**(char ***path**, size_t ***width**, size_t ***height**);
+> unsigned char						***import_bmp**(char ***path**, size_t ***width**, size_t ***height**);
 >
 >
 >  1. **path** est le chemin du fichier a ouvrir.
