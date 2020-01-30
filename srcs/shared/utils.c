@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 13:43:59 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 12:38:18 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 14:26:08 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,7 +41,7 @@ void	number_to_bytes(t_uint nb, t_uchar *buffer, t_uint len)
 	buffer[i] = nb & 0xFF;
 }
 
-void	free2d(unsigned char ***str)
+void	free2d(t_uchar ***str)
 {
 	int i;
 
@@ -56,24 +56,24 @@ void	free2d(unsigned char ***str)
 	*str = NULL;
 }
 
-
- void		display_header(t_bmp *bmp)
- {
-	printf("%c%c\n", bmp->file_header->signature[0],
-  bmp->file_header->signature[1]);
-	printf("total size : %d\n", bmp->file_header->totalsize);
-	printf("offset: %d\n", bmp->file_header->offset);
-	printf("bitmap info header size: %d\n", bmp->info_header->bm_headersize);
-	printf("width: %d\n", bmp->info_header->width);
-	printf("height: %d\n", bmp->info_header->height);
-	printf("planes number: %d\n", bmp->info_header->planes_number);
-	printf("BPP: %d\n", bmp->info_header->bpp);
-	printf("compression type: %d\n", bmp->info_header->compression_type);
-	printf("image size: %d\n", bmp->info_header->imagesize);
-	printf("horizontal resolution: %d\n", bmp->info_header->hres);
-	printf("vertical resolution: %d\n", bmp->info_header->vres);
-	printf("number of colors: %d\n", bmp->info_header->ncolors);
-	printf("number of important colors: %d\n", bmp->info_header->nimpcolors);
-	printf("padding: %d\n", bmp->padding);
- }
-
+/*
+** void display_header(t_bmp *bmp)
+** {
+** printf("%c%c\n", bmp->file_header->signature[0],
+** bmp->file_header->signature[1]);
+** printf("total size : %d\n", bmp->file_header->totalsize);
+** printf("offset: %d\n", bmp->file_header->offset);
+** printf("bitmap info header size: %d\n", bmp->info_header->bm_headersize);
+** printf("width: %d\n", bmp->info_header->width);
+** printf("height: %d\n", bmp->info_header->height);
+** printf("planes number: %d\n", bmp->info_header->planes_number);
+** printf("BPP: %d\n", bmp->info_header->bpp);
+** printf("compression type: %d\n", bmp->info_header->compression_type);
+** printf("image size: %d\n", bmp->info_header->imagesize);
+** printf("horizontal resolution: %d\n", bmp->info_header->hres);
+** printf("vertical resolution: %d\n", bmp->info_header->vres);
+** printf("number of colors: %d\n", bmp->info_header->ncolors);
+** printf("number of important colors: %d\n", bmp->info_header->nimpcolors);
+** printf("padding: %d\n", bmp->padding);
+** }
+*/

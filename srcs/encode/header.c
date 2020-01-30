@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 18:52:25 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:30:31 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 14:26:16 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,7 +42,7 @@ void	fill_headers(t_bmp *bmp, int width, int height)
 
 void	write_headers(t_bmp *bmp)
 {
-	unsigned char buffer[54];
+	t_uchar buffer[54];
 
 	buffer[0] = bmp->file_header->signature[0];
 	buffer[1] = bmp->file_header->signature[1];

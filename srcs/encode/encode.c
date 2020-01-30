@@ -6,14 +6,14 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/13 03:39:56 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 12:29:11 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 14:26:13 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libbmp.h"
 
-static t_bmp	*encode(unsigned char *img, int width, int height)
+static t_bmp	*encode(t_uchar *img, int width, int height)
 {
 	t_bmp	*bmp;
 
@@ -25,7 +25,8 @@ static t_bmp	*encode(unsigned char *img, int width, int height)
 	return (bmp);
 }
 
-int				export_as_bmp(char *path, unsigned char *img, int width, int height)
+int				export_as_bmp(char *path, t_uchar *img,
+				int width, int height)
 {
 	t_bmp	*bmp;
 
