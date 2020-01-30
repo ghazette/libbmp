@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 18:54:04 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/04/13 11:28:39 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 13:04:26 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,4 +41,5 @@ void	decode_bitmap_info_header(t_bmp *bmp)
 	bmp->info_header->ncolors = bytes_to_number(buffer + 32, 4);
 	bmp->info_header->nimpcolors = bytes_to_number(buffer + 36, 4);
 	bmp->padding = bmp->info_header->width % 4;
+	display_header(bmp);
 }

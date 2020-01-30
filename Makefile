@@ -6,7 +6,7 @@
 #    By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/10/19 13:50:37 by ghazette     #+#   ##    ##    #+#        #
-#    Updated: 2018/10/19 13:50:53 by ghazette    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/30 13:19:16 by ghazette    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -15,7 +15,7 @@ NAME = libbmp.a
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -O3
+CFLAGS = -Wall -Werror -Wextra -O3 -g
 
 RM = rm -f
 

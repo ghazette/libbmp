@@ -6,14 +6,14 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 22:11:11 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/06/06 15:38:18 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 12:30:03 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../../includes/libbmp.h"
 
-static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
+static int		create_bitmap_data(unsigned char *img, int i, t_bitmap_data **data,
 	t_bitmap_data **ptr)
 {
 	if (!(*data))
@@ -33,7 +33,7 @@ static int		create_bitmap_data(char *img, int i, t_bitmap_data **data,
 	return (1);
 }
 
-int				fill_imagedata(t_bmp *bmp, char *img, int width, int height)
+int				fill_imagedata(t_bmp *bmp, unsigned char *img, int width, int height)
 {
 	t_bitmap_data	*ptr;
 	int				i;

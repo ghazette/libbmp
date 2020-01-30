@@ -6,7 +6,7 @@
 /*   By: ghazette <ghazette@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/04/12 18:42:40 by ghazette     #+#   ##    ##    #+#       */
-/*   Updated: 2018/09/10 13:23:53 by ghazette    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/30 13:24:11 by ghazette    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,8 +50,8 @@ static unsigned char	*get_row(t_bmp *bmp, unsigned char *img)
 
 	j = 0;
 	i = 0;
-	len = (bmp->info_header->width * 3) - bmp->padding;
-	alloc = (bmp->info_header->width * 4) - bmp->padding;
+	len = (bmp->info_header->width * 3);
+	alloc = (bmp->info_header->width * 4);
 	if (!(ret = malloc(alloc)))
 		return (NULL);
 	while (j < len)
@@ -77,12 +77,12 @@ int						get_imagedata(t_bmp *bmp)
 	if (!(readed = (unsigned char**)malloc(sizeof(unsigned char*) *
 	(bmp->info_header->height + 1))))
 		return (0);
-	if (!(buffer = malloc((bmp->info_header->width * 3) - bmp->padding)))
+	if (!(buffer = malloc((bmp->info_header->width * 3))))
 		return (0);
 	readed[bmp->info_header->height] = 0;
 	while (i != -1)
 	{
-		if (read(bmp->fd, buffer, (bmp->info_header->width * 3) - bmp->padding))
+		if (read(bmp->fd, buffer, (bmp->info_header->width * 3)))
 			readed[i] = get_row(bmp, buffer);
 		if (bmp->padding > 0)
 			read(bmp->fd, pad, bmp->padding);
